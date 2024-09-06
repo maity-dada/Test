@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Input Form</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px;">
+
+    <div style="max-width: 500px; margin: auto; background-color: #fff; padding: 20px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); border-radius: 8px;">
+        <h2 style="text-align: center; color: #333;">Update Input Form</h2>
+        
+        <!-- Add enctype="multipart/form-data" to the form tag -->
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="recipeName" style="display: block; margin-bottom: 10px; color: #555;">Recipe Name:</label>
+            <input type="text"  required id="recipeName" value="{{recipe.recipeName}}" name="recipeName" style="width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 4px;">
+
+            <label for="recipeDescription" style="display: block; margin-bottom: 10px; color: #555;">About the Recipe:</label>
+            <textarea id="recipeDescription"  required name="recipeDescription" rows="5" style="width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 4px;">{{recipe.recipeDescription}}</textarea>
+
+            <label for="recipeImage" style="display: block; margin-bottom: 10px; color: #555;">Upload Recipe Image:</label>
+            <input type="file" id="recipeImage" name="recipeImage" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+           
+            <h2 style="text-align: center; color: #333;">OR</h2>
+           
+            <label for="recipeImageUrl" style="display: block; margin-bottom: 10px; color: #555;">Upload Recipe Image Url:</label>
+            <input type="url" id="recipeImageUrl" name="recipeImageUrl" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+
+            <button type="submit" style="width: 100%; padding: 10px; background-color: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer; margin-top: 20px;">Submit</button>
+        </form>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Website{% endblock %}</title>
+    <style>
+        /* Navbar container */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            background-color: #2e7d32; /* Green background */
+            padding: 10px;
+        }
+
+        /* Brand name style */
+        nav .brand {
+            color: white;
+            font-size: 24px;
+        }
+
+        /* Navbar list style */
+        nav ul {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navbar list item style */
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        /* Navbar link style */
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+        }
+
+        /* Hover effect on links */
+        nav ul li a:hover {
+            color: #a5d6a7; /* Lighter green on hover */
+        }
+    </style>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f4f4f4;">
+    {% block navbar %}
+    <nav>
+        <div class="brand">{{request.user}} RECIPE</div>
+        <ul>
+            <li><a href="/recipe/">Home</a></li>
+            <li><a href="/recipe-disply/">Recipes</a></li>
+            <li><a href="/logout_view/">Log Out</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+    {% endblock %}
+
+    <div>
+        {% block content %}
+        <!-- Content from child templates will be rendered here -->
+        {% endblock %}
+
+        {% block recipe_display %}
+        
+        {% endblock recipe_display %}
+
+
+    </div>
+</body>
+</html>
